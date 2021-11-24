@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<title>Sensor Stream Server</title>
+<h2>Top level page with links to all other functionality</h2>
+
+<p>
+	<a href="{{ url_for('.download_file') }}">Log Download</a>
+	<a href="{{ url_for('.sensor_stream') }}">Log Check</a>
+	<a href="{{ url_for('.stop_sending') }}">StopSending</a>
+	<a href="{{ url_for('.resume_sending') }}">ResumeSending</a>
+	<a href="{{ url_for('.check') }}">Status</a>
+	<a href="{{ url_for('.exit') }}">Exit</a>
+</p>
+
+
+<head>
+  <meta charset="utf-8" />
+    <style>
+	table {       
+		position: absolute;
+		font-size: 150%;
+		width: 480px;
+		height: 200px;
+		z-index: 15;
+		top: 20%;
+		left: 50%;
+		margin: -100px 0 0 -150px;
+		background: rgb(236, 240, 204);
+	}
+</style>
+  <title>Show CSV</title>
+</head>
+<body>
+  <table>
+    {% block content %}
+    {{ data|safe }}
+    {% endblock %}  
+  <table>
+</body>
+</html>

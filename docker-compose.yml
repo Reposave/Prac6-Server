@@ -1,0 +1,15 @@
+version: '2'
+volumes:
+  shareddata:
+services:
+
+  tcp:
+    build: ./tcpserver
+    volumes:
+      - 'shareddata:/data'
+    ports: 
+      - 5080:5080
+      - 80:80
+      - 5003:5003
+    restart: always
+    privileged: true

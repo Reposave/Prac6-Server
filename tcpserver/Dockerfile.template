@@ -1,7 +1,6 @@
 # base-image for python on any machine using a template variable,
 FROM balenalib/raspberry-pi-python:buster-build
 
-
 # Set our working directory
 WORKDIR /usr/src/app
 
@@ -10,6 +9,9 @@ COPY requirements.txt requirements.txt
 
 # pip install python deps from requirements.txt on the resin.io build server
 RUN python -m pip install --upgrade pip
+RUN pip install tablib
+RUN pip install tablib[html]
+RUN pip install PrettyTable
 RUN pip install -r requirements.txt
 
 # This will copy all files in our root to the working  directory in the container
