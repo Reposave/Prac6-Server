@@ -77,10 +77,10 @@ def resume_sending():
 def Webserver(args):
     app.run(host='0.0.0.0', port=80)
 
-def WebListener(conn, results):
+def WebListener(conn2, results):
 
     while(True):
-        datarecv = conn.recv(BUFFER_SIZE).decode()
+        datarecv = conn2.recv(BUFFER_SIZE).decode()
         if(datarecv[0]=="c"):
             print(datarecv)
             if(datarecv[2]=="o"):
@@ -120,7 +120,7 @@ if __name__ == "__main__":
 
     print("Hello")
 
-    TCP_IP = '0.0.0.0'
+    TCP_IP = '192.168.43.209'
     TCP_PORT = 5003
     WEB_PORT = 5003
     BUFFER_SIZE = 2048  # Normally 1024
